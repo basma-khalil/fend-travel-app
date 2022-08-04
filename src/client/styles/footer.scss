@@ -1,0 +1,15 @@
+@import './global';
+
+footer {
+	grid-area: ft;
+	padding: 20px;
+	background: $footer-color;
+	color: $light-color;
+	text-align: center;
+	font-size: 14px;
+	z-index: 1;
+	
+	.heart {
+		color:#e25555;
+	}
+}

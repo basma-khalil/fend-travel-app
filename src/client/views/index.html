@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Simple travel planner, your easy way to plan your next trip">
+		<link rel="icon" type="image/png" href="../media/favicon.png">
+		<title>Travel Planner</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+	</head>
+
+	<body>
+		<div id="site-wrap" class="site-wrap">
+			<header>
+				<div class="container flex--row">
+					<section class="site-name flex--row">
+						<div class="navigation">
+							<div id="nav__btn" class="nav__btn" role="button">
+								<div></div>
+							</div>
+						</div>
+
+						<div class="logo">
+							<h1><a href="index.html">travel planner</a></h1>
+						</div>
+					</section>
+
+					<div class="login">
+						<button class="main--btn">subscribe</button>
+						<a href="#">sign in</a>
+					</div>
+				</div>
+			</header>
+
+			<aside id="navbar">
+				<nav>
+					<ul>
+						<li><a href="index.html">home</a></li>
+						<li><a href="#">about</a></li>
+						<li><a href="#">contact</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<main>
+				<div class="container flex--col">
+					<button class="top-btn" title="Go to top"><span></span></button>
+
+					<figure class="intro">
+						<img src="../media/intro.png" alt="Travel the world">
+					</figure>
+
+					<div class="trip-form">
+						<form id="trip-form" class="flex--row">
+							<div class="input-wrap flex--col">
+								<label for="city">Destination City</label>
+								<input type="text" id="city" class="city" placeholder="Enter city name here" required>
+							</div>
+
+							<div class="input-wrap flex--col">
+								<label for="start">Arrival Date</label>
+								<input type="date" id="start" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+							</div>
+
+							<div class="input-wrap flex--col">
+								<label for="end">Departure Date</label>
+								<input type="date" id="end" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+							</div>
+
+							<button id="generate" class="main--btn" type="submit">search</button>
+						</form>
+
+						<p class="corona-note">* The <span>coronavirus</span> (COVID-19) outbreak may impact your travel plans. Stay safe and find out more <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/travel-advice">here</a>.</p>
+					</div>
+
+					<button id="add-trip" class="add-trip-btn main--btn hide" type="button">Add new trip</button>
+
+					<div class="trips-container flex--col">
+
+					</div>
+
+					<figure class="rotate">
+						<img class="rotated" src="../media/world.png" alt="World tourism landmarks">
+					</figure>
+				</div>
+			</main>
+
+			<footer>
+				<div class="container flex--col">
+					<p>&copy;2020 Basma Khalil - Made with <span class="heart">&#10084;</span></p>
+				</div>
+			</footer>
+
+			<script>
+				// Check that service workers are supported
+				if ('serviceWorker' in navigator) {
+					// Use the window load event to keep the page load performant
+					window.addEventListener('load', () => {
+						navigator.serviceWorker.register('/service-worker.js');
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

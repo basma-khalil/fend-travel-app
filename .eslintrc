@@ -1,0 +1,14 @@
+{
+	"parser": "babel-eslint",
+	"rules": {},
+	"env": {
+        "browser": true,
+        "node": true
+    },
+	"globals": {
+		"GEONAMES_USERNAME": true,
+		"PIXABAY_KEY": true,
+		"WEATHERBIT_KEY": true,
+	}
+
+}

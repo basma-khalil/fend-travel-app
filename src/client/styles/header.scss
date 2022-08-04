@@ -1,0 +1,116 @@
+@import './global';
+
+header {
+	grid-area: hd;
+	align-items: center;
+	color: $light-color;
+	margin-bottom: 1rem;
+	padding: 1rem 0;
+	font-size: 3.5vw;
+
+	.site-name {
+		align-items: center;
+	}
+
+	.logo {
+		margin-left: 0.7rem;
+
+		h1 {
+			margin: 0;
+		}
+
+		a {
+			color: $light-color;
+			font-size: 1rem;
+			font-weight: bold;
+			text-transform: capitalize;
+
+			&:hover,
+			&:active {
+				border-bottom: 0;
+			}
+		}
+	}
+
+	/* Start Navigation */
+	.navigation {
+		width: 32px;
+		height: 30px;
+	}
+
+	.nav__btn {
+		width: 37px;
+		height: 30px;
+		padding: 5px;
+		border-radius: 4px;
+		cursor: pointer;
+		z-index: 2;
+
+		div {
+			position: relative;
+			top: 8px;
+			height: 4px;
+			background: $light-color;
+			border-radius: 4px;
+			transition: transform 0.5s ease-out;
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				top: -8px;
+				width: 100%;
+				height: 4px;
+				background: inherit;
+				border-radius: 4px;
+			}
+
+			&::after {
+				top: 8px;
+			}
+		}
+
+		&.open {
+			position: fixed;
+			background: $light-color;
+		}
+
+		&.open div {
+			background: $primary-color;
+			transform: rotate(135deg);
+		}
+
+		&.open div::before,
+		&.open div::after {
+			top: 0;
+			transform: rotate(90deg);
+		}
+
+		&.open:hover div {
+			transform: rotate(225deg);
+		}
+	}
+
+	.login {
+		a {
+			color: $light-color;
+
+			&:hover,
+			&:active {
+				border-bottom: 1px solid $light-color;
+			}
+		}
+	}
+}
+
+
+/* ---- Media Query ---- */
+@media screen and (min-width: 600px) {
+	header {
+		font-size: inherit;
+
+		.logo a {
+			font-size: 1.2rem;
+		}
+	}
+}

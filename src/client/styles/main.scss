@@ -1,0 +1,239 @@
+@import './global';
+
+.intro {
+	margin-bottom: 5rem;
+}
+
+.add-trip-btn {
+	display: block;
+	margin-bottom: 3.125rem;
+}
+
+.trips-container {
+	width: 100%;
+	margin-bottom: 3.125rem;
+}
+
+.trip {
+	max-width: 45.625rem;
+	height: 0;
+	background: $light-color;
+	border-radius: 20px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	transform: scaleY(0);
+	transition: transform 0.5s, box-shadow 0.5s, opacity 0.5s;
+
+	&:hover {
+		box-shadow: 0 19px 38px 0 rgba(0, 0, 0, 0.30);
+	}
+
+	&.expired {
+		opacity: 0.7;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	.delete {
+		background: $minor-color;
+		color: $light-color;
+	}
+}
+
+.trip__overview {
+	justify-content: center;
+	width: 100%;
+	height: 50%;
+	background-size: cover;
+	background-position: center;
+	border-radius: 20px 20px 0 0;
+
+	.overview__details {
+		justify-content: center;
+		padding: 0.6rem;
+		background: rgba(0, 0, 0, 0.2);
+		color: $light-color;
+		text-align: center;
+		border-radius: 8px;
+
+		h2 {
+			margin-bottom: 0.5rem;
+			font-family: "Open Sans", sans-serif;
+			font-size: 2.6rem;
+			font-weight: 900;
+
+		}
+	}
+}
+
+.trip__info {
+	width: 100%;
+	min-height: 50%;
+	padding: 1.7rem 1.5rem;
+	font-size: 1.05rem;
+
+	.child {
+		width: 100%;
+		margin-bottom: 2.5rem;
+	}
+
+	.data {
+		width: 47%;
+		align-items: flex-start;
+
+		.country {
+
+			.country__data {
+				width: 60%;
+			}
+
+			span {
+				font-weight: bold;
+				text-transform: capitalize;
+			}
+
+			.flag {
+				width: 36%;
+			}
+		}
+
+		.weather {
+
+			.temp {
+				width: 60%;
+			}
+
+			.temp__current {
+				font-size: 2.7rem;
+				font-weight: bold;
+			}
+		}
+
+			.icon {
+				width: 36%;
+			}
+		}
+
+	.note-wrap {
+		width: 47%;
+		align-items: flex-start;
+
+		h3 {
+			margin-bottom: 0.3rem;
+			font-size: 1.3rem;
+			font-weight: bold;
+		}
+
+		form {
+			display: flex;
+			align-items: flex-end;
+			margin-bottom: 0.5rem;
+
+			textarea {
+				margin-right: 0.5rem;
+				padding: 0.3rem;
+				color: #555;
+				line-height: 1rem;
+				font-family: "Open Sans", sans-serif;
+				font-size: 1rem;
+				outline: 0;
+				border: 1px solid #ddd;
+				border-radius:  0.4rem;
+
+				&:focus {
+					border: 2px solid #99bbee;
+					border-radius: 0.4rem;
+				}
+			}
+
+			button {
+				margin-bottom: 0;
+			}
+		}
+
+		.note {
+			position: relative;
+			height: 5rem;
+			overflow: auto;
+
+			.close {
+				position: absolute;
+				top: -1rem;
+				right: 1rem;
+				color: #333;
+				font-size: 2rem;
+				font-weight: bold;
+				cursor: pointer;
+
+				&:hover {
+					color: $minor-color;
+				}
+			}
+		}
+	}
+}
+
+@keyframes rotating {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.rotated {
+	margin-bottom: calc(-65%);
+ 	animation: rotating 240s linear infinite;
+}
+
+.show--trip {
+	min-height: 40rem;
+	margin-bottom: 3.125rem;
+	overflow: visible;
+	transform: scaleY(1);
+}
+
+.hide {
+	max-height: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+}
+
+
+/* ---- Media Query ---- */
+@media screen and (max-width: 600px) {
+	.trip {
+		height: auto;
+		font-size: 3.5vw;
+	}
+
+	.trip__overview .overview__details h2 {
+		font-size: 2rem;
+	}
+
+	.trip__info {
+		flex-wrap: wrap;
+
+		.data,
+		.note-wrap {
+			width: 100%;
+		}
+
+		.child {
+			margin-bottom: 1rem;
+		}
+
+		.weather .temp__current {
+			font-size: 1.7rem;
+		}
+	}
+
+	.note-wrap button {
+		font-size: 1rem;
+	}
+}
